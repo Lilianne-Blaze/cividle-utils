@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example.cividleutils</groupId>
+    <artifactId>cividleutils</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+    </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>repsy-lbcode-releases</id>
+            <url>https://repo.repsy.io/mvn/lilianne_blaze/lbcode-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>repsy-lbcode-snapshots</id>
+            <url>https://repo.repsy.io/mvn/lilianne_blaze/lbcode-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>repsy-lbcode-releases</id>
+            <url>https://repo.repsy.io/mvn/lilianne_blaze/lbcode-releases</url>
+        </repository>
+        <repository>
+            <id>repsy-lbcode-snapshots</id>
+            <url>https://repo.repsy.io/mvn/lilianne_blaze/lbcode-snapshots</url>
+        </repository>
+    </repositories>
+
+	
+    <profiles>
+
+        
+        <profile>
+            <id>profile-lbcode-commons-local</id>
+            <activation>
+                <file>
+                    <exists>..\lbcode-commons\lbcode-commons-base\pom.xml</exists>
+                </file>
+            </activation>
+            <modules>
+                <module>..\lbcode-commons\lbcode-commons-base</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>profile-main</id>
+            <activation>
+                <file>
+                    <!-- always active, run last -->
+                    <exists>.\pom.xml</exists>
+                </file>
+            </activation>
+            <modules>
+                <module>ciu-defs</module>
+                <module>ciu-lib</module>
+            </modules>
+        </profile>
+        
+    </profiles>
+	
+</project>
