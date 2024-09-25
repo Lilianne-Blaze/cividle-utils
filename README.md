@@ -25,3 +25,8 @@ Compiled to ciu-mapdecoder\target\ciu-mapdecoder.exe
 Shows the current Sci and EV income per sec and per 24h.
 Shows a simplified map with positions of unexplored natural wonders
 (intended mostly for Memphis and Kioto)
+
+Current version as of 2024-09-26:
+
+![x](/screenshots/screenshot1.png)
+
