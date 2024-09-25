@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.example.cividleutils</groupId>
+        <artifactId>cividleutils</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    
+    <artifactId>ciu-mapdecoder</artifactId>
+    <packaging>jar</packaging>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.release>21</maven.compiler.release>
+        
+        <exec.mainClass>com.example.cividleutils.mapdecoder.MapDecoderLauncher</exec.mainClass>
+        
+        <launch4j.libericaJre>C:\Program Files\BellSoft\LibericaJRE-21-Full;C:\Program Files\BellSoft\LibericaJRE-21</launch4j.libericaJre>
+        <launch4j.relPath>%EXEDIR%\jre;%EXEDIR%\..\jre</launch4j.relPath>
+        <launch4j.path>%JAVA21_HOME%;%JAVA_HOME%;${launch4j.libericaJre};${launch4j.relPath};%PATH%</launch4j.path>
+
+    </properties>
+
+    <dependencies>
+        
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.17.2</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.fusesource.jansi</groupId>
+            <artifactId>jansi</artifactId>
+            <version>2.4.1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.example.cividleutils</groupId>
+            <artifactId>ciu-defs</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.example.cividleutils</groupId>
+            <artifactId>ciu-lib</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>net.lbcode.commons.base</groupId>
+            <artifactId>lbcode-commons-base</artifactId>
+            <version>0.0.23-SNAPSHOT</version>
+        </dependency>
+        
+    </dependencies>
+    
+    
+    <build>
+        <plugins>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>${exec.mainClass}</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <plugin>
+                <groupId>com.akathist.maven.plugins.launch4j</groupId>
+                <artifactId>launch4j-maven-plugin</artifactId>
+                <version>2.5.1</version>
+                <executions>
+                    <execution>
+                        <id>launch4j-cli-exe</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>launch4j</goal>
+                        </goals>
+                        <configuration>
+                            <headerType>console</headerType>
+                            <classPath>
+                                <mainClass>${exec.mainClass}</mainClass>
+                            </classPath>
+                            <jre>
+                                <minVersion>1.8.0</minVersion>
+                                <path>${launch4j.path}</path>
+                                <opts>
+                                    <opt>-Dlaunch4j.active=true</opt>
+                                    <opt>-Dlaunch4j.exedir="%EXEDIR%"</opt>
+                                    <opt>-Dlaunch4j.exefile="%EXEFILE%"</opt>
+                                    <opt>-Dlaunch4j.pwd="%PWD%"</opt>
+                                    <opt>-Dlaunch4j.oldpwd="%OLDPWD%"</opt>
+                                </opts>
+                            </jre>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+        </plugins>
+    </build>
+
+</project>

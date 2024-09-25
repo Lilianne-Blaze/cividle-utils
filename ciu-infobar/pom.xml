@@ -7,7 +7,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     
-    <artifactId>ciu-lib</artifactId>
+    <artifactId>ciu-infobar</artifactId>
     <packaging>jar</packaging>
     
     <properties>
@@ -15,7 +15,7 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <maven.compiler.release>21</maven.compiler.release>
-        <exec.mainClass>com.example.cividleutils.lib.CiuLib</exec.mainClass>
+        <exec.mainClass>com.example.cividleutils.defs.infobar.InfoBarLauncher</exec.mainClass>
     </properties>
 
     <dependencies>
@@ -46,14 +46,13 @@
         </dependency>
         
         <dependency>
-            <groupId>net.java.dev.jna</groupId>
-            <artifactId>jna-platform</artifactId>
-            <version>5.14.0</version>
-        </dependency>
-        
-        <dependency>
             <groupId>com.example.cividleutils</groupId>
             <artifactId>ciu-defs</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.example.cividleutils</groupId>
+            <artifactId>ciu-lib</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         

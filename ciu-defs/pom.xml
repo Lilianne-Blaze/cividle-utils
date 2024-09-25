@@ -10,6 +10,7 @@
     <artifactId>ciu-defs</artifactId>
     <packaging>jar</packaging>
     
+ 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>21</maven.compiler.source>
@@ -17,5 +18,34 @@
         <maven.compiler.release>21</maven.compiler.release>
         <exec.mainClass>com.example.cividleutils.defs.CiuDefs</exec.mainClass>
     </properties>
+
+    <dependencies>
+               
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>net.lbcode.commons.base</groupId>
+            <artifactId>lbcode-commons-base</artifactId>
+            <version>0.0.23-SNAPSHOT</version>
+        </dependency>
+            
+    </dependencies>
     
 </project>

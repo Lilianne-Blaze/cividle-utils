@@ -8,7 +8,7 @@ echo GRAALVM_HOME: %GRAALVM_HOME%
 
 pushd %d%
 
-call ./mvnw.cmd compile package %*
+call ./mvnw.cmd clean compile package
 
 pause
 popd
